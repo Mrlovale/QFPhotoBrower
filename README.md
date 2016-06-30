@@ -55,6 +55,7 @@
     [brower presentFromImageView:imageView1 toContrainer:self.navigationController.view animated:YES completion:nil];
 ```
 
-
+###示例：
+![Example](./example.gif)
 
 #### 在此要感谢YY同学，没有YY同学的[YYKit](https://github.com/ibireme/YYKit),我可能做不出这样的控件。如果觉得不错，请给我一个star吧！
