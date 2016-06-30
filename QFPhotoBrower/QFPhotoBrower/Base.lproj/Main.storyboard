@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Rts-oO-jxH">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Opm-Br-HN2">
+                                <rect key="frame" x="25" y="57" width="100" height="100"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="fPJ-so-806"/>
+                                    <constraint firstAttribute="height" constant="100" id="txo-Rj-MCd"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iF5-cD-H7W" appends="YES" id="4eU-Qy-bCt"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="llh-tV-f8h">
+                                <rect key="frame" x="148" y="57" width="100" height="100"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6dr-4q-u1t"/>
+                                    <constraint firstAttribute="height" constant="100" id="x9v-Rh-bZU"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Nkv-Dz-tF7" appends="YES" id="zuY-S3-7wq"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buT-2X-Zta">
+                                <rect key="frame" x="25" y="171" width="223" height="100"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="e4w-Vf-5kl"/>
+                                    <constraint firstAttribute="width" constant="223" id="gDj-4y-Afe"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HjO-mR-9xy" appends="YES" id="prA-0S-d36"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DsA-PS-vOc">
+                                <rect key="frame" x="34" y="530" width="78" height="30"/>
+                                <state key="normal" title="显示本地"/>
+                                <connections>
+                                    <segue destination="fpZ-4j-zNR" kind="show" id="CoR-x0-732"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="llh-tV-f8h" firstAttribute="leading" secondItem="Opm-Br-HN2" secondAttribute="trailing" constant="23" id="6x7-33-uoe"/>
+                            <constraint firstItem="Opm-Br-HN2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="Ez8-q5-VSE"/>
+                            <constraint firstItem="buT-2X-Zta" firstAttribute="top" secondItem="llh-tV-f8h" secondAttribute="bottom" constant="14" id="Gzd-Jk-kdl"/>
+                            <constraint firstItem="buT-2X-Zta" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="25" id="MnF-AX-VA6"/>
+                            <constraint firstItem="Opm-Br-HN2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="25" id="WWR-K5-etR"/>
+                            <constraint firstItem="llh-tV-f8h" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="eiz-1C-eEt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="O33-tQ-k3G"/>
+                    <connections>
+                        <outlet property="imageView1" destination="Opm-Br-HN2" id="XAz-O4-dLz"/>
+                        <outlet property="imageView2" destination="llh-tV-f8h" id="BEi-Nm-vC2"/>
+                        <outlet property="imageView3" destination="buT-2X-Zta" id="mUN-yv-41k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iF5-cD-H7W">
+                    <connections>
+                        <action selector="image1Tap:" destination="BYZ-38-t0r" id="tP1-7q-aL1"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Nkv-Dz-tF7">
+                    <connections>
+                        <action selector="image2Tap:" destination="BYZ-38-t0r" id="Vwc-pL-bsg"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HjO-mR-9xy">
+                    <connections>
+                        <action selector="image3Tap:" destination="BYZ-38-t0r" id="m0k-QF-LOc"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1099" y="423"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="gFq-m6-23S">
+            <objects>
+                <viewController id="fpZ-4j-zNR" customClass="SecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SEU-1P-Osh"/>
+                        <viewControllerLayoutGuide type="bottom" id="oFf-kX-OBQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="meb-WT-EDl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curry1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="fIt-MS-iTk">
+                                <rect key="frame" x="40" y="77" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="kQ8-VB-IjS"/>
+                                    <constraint firstAttribute="height" constant="128" id="mIh-1O-A5G"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="OEt-Oe-t5X" appends="YES" id="AGr-6b-DZB"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curry3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="54B-ql-qFI">
+                                <rect key="frame" x="40" y="377" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="AZo-6K-vmp"/>
+                                    <constraint firstAttribute="height" constant="128" id="Jb7-5r-h7F"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="I3X-QZ-qq8" appends="YES" id="6yY-in-oBq"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curry2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="WOW-PU-8cw">
+                                <rect key="frame" x="40" y="227" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="p5x-Px-suO"/>
+                                    <constraint firstAttribute="width" constant="240" id="wZl-bh-kDz"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hWb-ns-SYC" appends="YES" id="c4X-Ff-XCg"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="54B-ql-qFI" firstAttribute="top" secondItem="WOW-PU-8cw" secondAttribute="bottom" constant="22" id="7UB-oF-CQL"/>
+                            <constraint firstItem="54B-ql-qFI" firstAttribute="leading" secondItem="meb-WT-EDl" secondAttribute="leading" constant="40" id="8Xq-YC-dNL"/>
+                            <constraint firstItem="fIt-MS-iTk" firstAttribute="leading" secondItem="meb-WT-EDl" secondAttribute="leading" constant="40" id="D8V-Nd-AEM"/>
+                            <constraint firstItem="WOW-PU-8cw" firstAttribute="top" secondItem="fIt-MS-iTk" secondAttribute="bottom" constant="22" id="ECU-Th-tHP"/>
+                            <constraint firstItem="fIt-MS-iTk" firstAttribute="top" secondItem="SEU-1P-Osh" secondAttribute="bottom" constant="13" id="RYs-gY-1Ck"/>
+                            <constraint firstItem="WOW-PU-8cw" firstAttribute="leading" secondItem="meb-WT-EDl" secondAttribute="leading" constant="40" id="cFx-A9-E5q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView1" destination="fIt-MS-iTk" id="KJJ-4X-HRu"/>
+                        <outlet property="imageView2" destination="WOW-PU-8cw" id="nzD-mQ-bd2"/>
+                        <outlet property="imageView3" destination="54B-ql-qFI" id="TLs-Ay-3Fc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zv5-CI-D4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="OEt-Oe-t5X">
+                    <connections>
+                        <action selector="imageTap:" destination="fpZ-4j-zNR" id="Ub2-UZ-ljZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hWb-ns-SYC">
+                    <connections>
+                        <action selector="image2Tap:" destination="fpZ-4j-zNR" id="O44-k6-VF2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="I3X-QZ-qq8">
+                    <connections>
+                        <action selector="image3Tap:" destination="fpZ-4j-zNR" id="hLa-ED-2vl"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="287" y="1111"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Byk-hn-Afd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rts-oO-jxH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eFI-RM-Ijg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Wsh-Nt-7J6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="By2-YB-eec" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="287" y="423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="curry1.jpeg" width="293" height="220"/>
+        <image name="curry2.jpg" width="160" height="220"/>
+        <image name="curry3.jpg" width="331" height="220"/>
+    </resources>
+</document>
