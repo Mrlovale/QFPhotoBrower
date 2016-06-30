@@ -57,6 +57,7 @@ static NSString *BrowerCellIdentifier = @"BrowerCellIdentifier";
     self.frame = [UIScreen mainScreen].bounds;
     self.clipsToBounds = YES;
     self.isPresented = NO;
+    self.explainDismiss = NO;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
     tap.delegate = self;
@@ -207,29 +208,52 @@ static NSString *BrowerCellIdentifier = @"BrowerCellIdentifier";
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
     
     if (indexPath) {
-        QFPhotoItem *item = self.groupItems[indexPath.item];
-        CGRect convertFrame = [item.thumbView convertRect:item.thumbView.bounds toView:self.toContainerView];
         
-        UIImageView *tempView = [[UIImageView alloc] init];
-        [self addSubview:tempView];
-        tempView.image = item.thumbImage;
-        CGSize fromViewToSize = [self fromViewDisplaySize:item.thumbImage];
-        tempView.frame = CGRectMake((self.width - fromViewToSize.width) / 2, (self.height - fromViewToSize.height) / 2, fromViewToSize.width, fromViewToSize.height);
+        if (!self.explainDismiss) {
+            QFPhotoItem *item = self.groupItems[indexPath.item];
+            CGRect convertFrame = [item.thumbView convertRect:item.thumbView.bounds toView:self.toContainerView];
+            
+            UIImageView *tempView = [[UIImageView alloc] init];
+            [self addSubview:tempView];
+            tempView.image = item.thumbImage;
+            CGSize fromViewToSize = [self fromViewDisplaySize:item.thumbImage];
+            tempView.frame = CGRectMake((self.width - fromViewToSize.width) / 2, (self.height - fromViewToSize.height) / 2, fromViewToSize.width, fromViewToSize.height);
+            
+            // 背景动画
+            float animateTime = self.animated ? 0.25 : 0;
+            [UIView animateWithDuration:animateTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
+                self.blurBackground.alpha = 0;
+            } completion:NULL];
+            
+            __weak typeof(self) weakself = self;
+            self.collectionView.hidden = YES;
+            [UIView animateWithDuration:animateTime*2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
+                tempView.frame = convertFrame;
+            } completion:^(BOOL finished) {
+                [weakself removeFromSuperview];
+                weakself.isPresented = NO;
+            }];
+        }
+        else {
+            
+            // 背景动画
+            float animateTime = self.animated ? 0.25 : 0;
+            [UIView animateWithDuration:animateTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
+                self.blurBackground.alpha = 0;
+            } completion:NULL];
+            
+            __weak typeof(self) weakself = self;
+            [UIView animateWithDuration:animateTime*2 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                self.collectionView.transform = CGAffineTransformMakeScale(3, 3);
+                self.collectionView.alpha = 0;
+            } completion:^(BOOL finished) {
+                [weakself removeFromSuperview];
+                weakself.isPresented = NO;
+            }];
+            
+        }
         
-        // 背景动画
-        float animateTime = self.animated ? 0.25 : 0;
-        [UIView animateWithDuration:animateTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.blurBackground.alpha = 0;
-        } completion:NULL];
         
-        __weak typeof(self) weakself = self;
-        self.collectionView.hidden = YES;
-        [UIView animateWithDuration:animateTime*2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
-            tempView.frame = convertFrame;
-        } completion:^(BOOL finished) {
-            [weakself removeFromSuperview];
-            weakself.isPresented = NO;
-        }];
     }
 }
 

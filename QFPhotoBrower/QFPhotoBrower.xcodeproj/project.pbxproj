@@ -42,6 +42,7 @@
 		D1ADCD021D23AFF500018A0B /* UIView+frameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = D1ADCD011D23AFF500018A0B /* UIView+frameAdjust.m */; };
 		D1ADCD051D23BD1300018A0B /* QFBrowerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1ADCD041D23BD1300018A0B /* QFBrowerCell.m */; };
 		D1ADCD081D23C11D00018A0B /* UIImage+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = D1ADCD071D23C11D00018A0B /* UIImage+Function.m */; };
+		D1D105AD1D25046C00BE8346 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D105AC1D25046C00BE8346 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,8 @@
 		D1ADCD041D23BD1300018A0B /* QFBrowerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFBrowerCell.m; sourceTree = "<group>"; };
 		D1ADCD061D23C11D00018A0B /* UIImage+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Function.h"; sourceTree = "<group>"; };
 		D1ADCD071D23C11D00018A0B /* UIImage+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Function.m"; sourceTree = "<group>"; };
+		D1D105AB1D25046C00BE8346 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		D1D105AC1D25046C00BE8346 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,8 @@
 				D1ADCCAD1D23A85C00018A0B /* ViewController.m */,
 				D1661E7E1D24F41B0075DB69 /* SecondViewController.h */,
 				D1661E7F1D24F41B0075DB69 /* SecondViewController.m */,
+				D1D105AB1D25046C00BE8346 /* ThirdViewController.h */,
+				D1D105AC1D25046C00BE8346 /* ThirdViewController.m */,
 				D1ADCCAF1D23A85C00018A0B /* Main.storyboard */,
 				D1ADCCB21D23A85C00018A0B /* Assets.xcassets */,
 				D1ADCCB41D23A85C00018A0B /* LaunchScreen.storyboard */,
@@ -330,6 +335,7 @@
 				D1ADCCE61D23A88200018A0B /* SDWebImageManager.m in Sources */,
 				D1ADCCE41D23A88200018A0B /* SDWebImageDownloader.m in Sources */,
 				D1ADCCEB1D23A88200018A0B /* UIImage+WebP.m in Sources */,
+				D1D105AD1D25046C00BE8346 /* ThirdViewController.m in Sources */,
 				D1ADCCEE1D23A88200018A0B /* UIView+WebCacheOperation.m in Sources */,
 				D1ADCCE11D23A88200018A0B /* SDImageCache.m in Sources */,
 				D1ADCCAE1D23A85C00018A0B /* ViewController.m in Sources */,

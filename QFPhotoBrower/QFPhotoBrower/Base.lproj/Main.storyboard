@@ -57,6 +57,13 @@
                                     <segue destination="fpZ-4j-zNR" kind="show" id="CoR-x0-732"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xn9-rT-dXZ">
+                                <rect key="frame" x="148" y="530" width="119" height="30"/>
+                                <state key="normal" title="显示本地无Frame"/>
+                                <connections>
+                                    <segue destination="Ijy-tU-Kqz" kind="show" id="id5-ar-Q4M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -174,6 +181,33 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="287" y="1111"/>
+        </scene>
+        <!--Third View Controller-->
+        <scene sceneID="Dn5-rr-lbH">
+            <objects>
+                <viewController id="Ijy-tU-Kqz" customClass="ThirdViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2CA-yD-mUW"/>
+                        <viewControllerLayoutGuide type="bottom" id="66Y-nE-j5i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t3C-lT-UJp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTd-w2-ayk">
+                                <rect key="frame" x="75" y="186" width="30" height="30"/>
+                                <state key="normal" title="显示"/>
+                                <connections>
+                                    <action selector="click:" destination="Ijy-tU-Kqz" eventType="touchUpInside" id="FWX-ud-VbW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCY-Gf-cT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1099" y="1125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Byk-hn-Afd">

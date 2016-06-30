@@ -11,6 +11,7 @@
 @interface QFPhotoBrower : UIView
 
 @property (nonatomic, assign)BOOL blurEffectBackground; // Default is YES
+@property (nonatomic, assign)BOOL explainDismiss; // Default is NO
 
 - (instancetype)initWithPhotoItems:(NSArray *)items; // <QFPhotoItem>
 
