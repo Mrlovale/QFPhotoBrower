@@ -59,7 +59,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xn9-rT-dXZ">
                                 <rect key="frame" x="148" y="530" width="119" height="30"/>
-                                <state key="normal" title="显示本地无Frame"/>
+                                <state key="normal" title="显示网络无Frame"/>
                                 <connections>
                                     <segue destination="Ijy-tU-Kqz" kind="show" id="id5-ar-Q4M"/>
                                 </connections>
