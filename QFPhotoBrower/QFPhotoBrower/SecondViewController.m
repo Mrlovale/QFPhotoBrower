@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong)NSArray *imagesArray;
 @property (nonatomic, strong)NSArray *itemsArray;
+@property (nonatomic, assign)BOOL statusBarHidden;
 
 @end
 
@@ -40,16 +41,45 @@
     
     QFPhotoBrower *brower = [[QFPhotoBrower alloc] initWithPhotoItems:self.itemsArray];
     [brower presentFromImageView:_imageView1 toContrainer:self.navigationController.view animated:YES completion:nil];
+    [self showStatusBar:brower];
+    
+    self.statusBarHidden = YES;
 }
 
 - (IBAction)image2Tap:(id)sender {
     QFPhotoBrower *brower = [[QFPhotoBrower alloc] initWithPhotoItems:self.itemsArray];
     [brower presentFromImageView:_imageView2 toContrainer:self.navigationController.view animated:YES completion:nil];
+    [self showStatusBar:brower];
+    
+    self.statusBarHidden = YES;
 }
 
 - (IBAction)image3Tap:(id)sender {
     QFPhotoBrower *brower = [[QFPhotoBrower alloc] initWithPhotoItems:self.itemsArray];
     [brower presentFromImageView:_imageView3 toContrainer:self.navigationController.view animated:YES completion:nil];
+    [self showStatusBar:brower];
+    
+    self.statusBarHidden = YES;
     
 }
+
+- (void)showStatusBar:(QFPhotoBrower *)brower
+{
+    __weak typeof(self) weakSelf = self;
+    brower.completionBlock = ^(){
+        weakSelf.statusBarHidden = NO;
+    };
+}
+
+- (void)setStatusBarHidden:(BOOL)statusBarHidden
+{
+    _statusBarHidden = statusBarHidden;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return _statusBarHidden;
+}
+
 @end

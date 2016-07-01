@@ -58,6 +58,7 @@ static NSString *BrowerCellIdentifier = @"BrowerCellIdentifier";
     self.clipsToBounds = YES;
     self.isPresented = NO;
     self.explainDismiss = NO;
+    self.completionBlock = ^(){};
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
     tap.delegate = self;
@@ -209,6 +210,7 @@ static NSString *BrowerCellIdentifier = @"BrowerCellIdentifier";
     
     if (indexPath) {
         
+        self.completionBlock();
         if (!self.explainDismiss) {
             QFPhotoItem *item = self.groupItems[indexPath.item];
             CGRect convertFrame = [item.thumbView convertRect:item.thumbView.bounds toView:self.toContainerView];
@@ -237,7 +239,7 @@ static NSString *BrowerCellIdentifier = @"BrowerCellIdentifier";
         else {
             
             // 背景动画
-            float animateTime = self.animated ? 0.25 : 0;
+            float animateTime = self.animated || self.explainDismiss ? 0.25 : 0;
             [UIView animateWithDuration:animateTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
                 self.blurBackground.alpha = 0;
             } completion:NULL];
@@ -320,9 +322,11 @@ static NSString *BrowerCellIdentifier = @"BrowerCellIdentifier";
             } else if (alpha >= 1) {
                 alpha = 1;
             }
+            
+            __weak typeof(self) weakself = self;
             [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveLinear animations:^{
-                _blurBackground.alpha = alpha;
-                _pager.alpha = alpha;
+                weakself.blurBackground.alpha = alpha;
+                weakself.pager.alpha = alpha;
             } completion:nil];
             
         } break;
@@ -332,8 +336,10 @@ static NSString *BrowerCellIdentifier = @"BrowerCellIdentifier";
             CGPoint p = [gesture locationInView:self];
             CGFloat deltaY = p.y - _panGestureBeginPoint.y;
             
+            __weak typeof(self) weakself = self;
             if (fabs(v.y) > 1000 || fabs(deltaY) > 120) {
                 _isPresented = NO;
+                self.completionBlock();
                 [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation:UIStatusBarAnimationFade];
                 
                 BOOL moveToTop = (v.y < - 50 || (v.y < 50 && deltaY < 0));
@@ -348,24 +354,24 @@ static NSString *BrowerCellIdentifier = @"BrowerCellIdentifier";
                 }
                 
                 [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionBeginFromCurrentState animations:^{
-                    _blurBackground.alpha = 0;
-                    _pager.alpha = 0;
+                    weakself.blurBackground.alpha = 0;
+                    weakself.pager.alpha = 0;
                     if (moveToTop) {
-                        self.collectionView.bottom = 0;
+                        weakself.collectionView.bottom = 0;
                     } else {
-                        self.collectionView.y = self.height;
+                        weakself.collectionView.y = self.height;
                     }
                 } completion:^(BOOL finished) {
-                    [self removeFromSuperview];
+                    [weakself removeFromSuperview];
                 }];
                 
                 _background.image = _snapshotImage;
                 
             } else {
                 [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:v.y / 1000 options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState animations:^{
-                    self.collectionView.y = 0;
-                    _blurBackground.alpha = 1;
-                    _pager.alpha = 1;
+                    weakself.collectionView.y = 0;
+                    weakself.blurBackground.alpha = 1;
+                    weakself.pager.alpha = 1;
                 } completion:^(BOOL finished) {
                     
                 }];

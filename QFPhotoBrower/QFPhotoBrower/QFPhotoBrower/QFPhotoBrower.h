@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^CompletionBlock)(void);
+
 @interface QFPhotoBrower : UIView
 
 @property (nonatomic, assign)BOOL blurEffectBackground; // Default is YES
 @property (nonatomic, assign)BOOL explainDismiss; // Default is NO
+@property (nonatomic, copy)CompletionBlock completionBlock;
 
 - (instancetype)initWithPhotoItems:(NSArray *)items; // <QFPhotoItem>
 

@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView3;
 
 @property (nonatomic, strong)NSArray *items;
+@property (nonatomic, assign)BOOL statusBarHidden;
 
 @end
 
@@ -45,23 +46,46 @@
     
     QFPhotoBrower *brower = [[QFPhotoBrower alloc] initWithPhotoItems:_items];
     [brower presentFromImageView:_imageView1 toContrainer:self.navigationController.view animated:YES completion:nil];
+    [self showStatusBar:brower];
+
+    self.statusBarHidden = YES;
 }
 - (IBAction)image2Tap:(UITapGestureRecognizer *)sender {
     NSLog(@"image2Tap");
     
     QFPhotoBrower *brower = [[QFPhotoBrower alloc] initWithPhotoItems:_items];
     [brower presentFromImageView:_imageView2 toContrainer:self.navigationController.view animated:YES completion:nil];
+    [self showStatusBar:brower];
+    
+    self.statusBarHidden = YES;
 }
 - (IBAction)image3Tap:(UITapGestureRecognizer *)sender {
     NSLog(@"image3Tap");
     
     QFPhotoBrower *brower = [[QFPhotoBrower alloc] initWithPhotoItems:_items];
     [brower presentFromImageView:_imageView3 toContrainer:self.navigationController.view animated:YES completion:nil];
+    [self showStatusBar:brower];
+    
+    self.statusBarHidden = YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)showStatusBar:(QFPhotoBrower *)brower
+{
+    __weak typeof(self) weakSelf = self;
+    brower.completionBlock = ^(){
+        weakSelf.statusBarHidden = NO;
+    };
+}
+
+- (void)setStatusBarHidden:(BOOL)statusBarHidden
+{
+    _statusBarHidden = statusBarHidden;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return _statusBarHidden;
 }
 
 @end

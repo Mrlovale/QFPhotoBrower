@@ -10,4 +10,6 @@
 
 @interface ThirdViewController : UIViewController
 
+@property (nonatomic, assign)BOOL statusBarHidden;
+
 @end
