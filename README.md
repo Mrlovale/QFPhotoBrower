@@ -35,25 +35,26 @@
     NSString *str2 = @"str2";
     NSString *str3 = @"str3";
     
-    UIImageView *imageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"curry3.jpg"]];
-    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"curry3.jpg"]];
-    UIImageView *imageView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"curry3.jpg"]];
+    UIImageView *imageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"curry3.jpg"]]; // 占位图片
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"curry3.jpg"]]; // 占位图片
     
     CGFloat width = self.view.bounds.size.width;
     CGFloat height = self.view.bounds.size.height;
-    imageView1.frame = CGRectMake((width - 100) * 0.5, (height - 100) * 0.5, 100, 100);
-    imageView2.frame = CGRectMake((width - 100) * 0.5, (height - 100) * 0.5, 100, 100);
-    imageView3.frame = CGRectMake((width - 100) * 0.5, (height - 100) * 0.5, 100, 100);
+    tempImageView.frame = CGRectMake((width - 100) * 0.5, (height - 100) * 0.5, 100, 100);
     
-    QFPhotoItem *item1 = [[QFPhotoItem alloc] initWithThumbView:imageView1 largeImageURL:[NSURL URLWithString:str1]];
-    QFPhotoItem *item2 = [[QFPhotoItem alloc] initWithThumbView:imageView2 largeImageURL:[NSURL URLWithString:str2]];
-    QFPhotoItem *item3 = [[QFPhotoItem alloc] initWithThumbView:imageView3 largeImageURL:[NSURL URLWithString:str3]];
+    QFPhotoItem *item1 = [[QFPhotoItem alloc] initWithThumbView:tempImageView largeImageURL:[NSURL URLWithString:str1]];
+    QFPhotoItem *item2 = [[QFPhotoItem alloc] initWithThumbView:tempImageView largeImageURL:[NSURL URLWithString:str2]];
+    QFPhotoItem *item3 = [[QFPhotoItem alloc] initWithThumbView:tempImageView largeImageURL:[NSURL URLWithString:str3]];
     NSArray *items = @[item1, item2, item3];
     
     QFPhotoBrower *brower = [[QFPhotoBrower alloc] initWithPhotoItems:items];
     brower.explainDismiss = YES;
-    [brower presentFromImageView:imageView1 toContrainer:self.navigationController.view animated:YES completion:nil];
+    [brower presentFromImageView:tempImageView toContrainer:self.navigationController.view animated:NO completion:nil];
 ```
+
+###Tip
+在iOS9之后，`[[UIApplication sharedApplication] setStatusBarHidden: withAnimation:]`这个方法不能隐藏statusBar了，所以要想隐藏的话，需要在自己的ViewController中自己监听。`QFPhotoBrower`提供了`CompletionBlock`即相册消失的回调，可以在回调中显示statusBar。具体的实现请看Demo。
 
 ###示例：
 ![Example](./example.gif)
