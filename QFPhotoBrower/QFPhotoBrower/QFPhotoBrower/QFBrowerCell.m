@@ -189,7 +189,7 @@
     if (!_imageView) {
         _imageView = [[UIImageView alloc] init];
         _imageView.clipsToBounds = YES;
-        _imageView.backgroundColor = [UIColor colorWithWhite:1.000 alpha:0.500];
+        
     }
     return _imageView;
 }
