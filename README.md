@@ -54,7 +54,7 @@
 ```
 
 ###Tip
-在iOS9之后，`[[UIApplication sharedApplication] setStatusBarHidden: withAnimation:]`这个方法不能隐藏statusBar了，所以要想隐藏的话，需要在自己的ViewController中自己监听。`QFPhotoBrower`提供了`CompletionBlock`即相册消失的回调，可以在回调中显示statusBar。具体的实现请看Demo。
+在iOS9之后，`[[UIApplication sharedApplication] setStatusBarHidden: withAnimation:]`这个方法不能隐藏statusBar了，所以要想隐藏的话，需要在自己的ViewController中自己监听。`QFPhotoBrower`提供了`CompletionBlock`即相册消失的回调，可以在回调中显示statusBar。具体的实现请看Demo。1
 
 ###示例：
 ![Example](./example.gif)
